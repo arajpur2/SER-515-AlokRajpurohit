@@ -41,7 +41,7 @@ public abstract class Person {
 	 * Call the implementation to show the labels
 	 */
 	public void showLabels() {
-
+		System.out.println("labels displayed");
 	}
 
 	/**

@@ -18,6 +18,10 @@ public class Facade {
 	 */
 	private ClassProductList theProductList;
 
+	public Person getThePerson() {
+		return thePerson;
+	}
+
 	/**
 	 * The list of products of the entire system.
 	 */
@@ -83,7 +87,7 @@ public class Facade {
 	 * trading window
 	 */
 	public void remind() {
-
+		System.out.println("reminder set successfully");
 	}
 
 	/**
