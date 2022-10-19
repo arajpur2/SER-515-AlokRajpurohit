@@ -1,6 +1,15 @@
 /**
  * The interface class between the GUI and the underlining system, the control logic and many of the operating functions are included in this class
  */
+
+import java.io.*;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.Scanner;
+
 public class Facade {
 
 	/**
@@ -36,6 +45,34 @@ public class Facade {
 	 * Show login GUI and return the login result
 	 */
 	public boolean login() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("*************WELCOME TO ALOK'S PRODUCT TRADING AND BIDDING SYSTEM!*************");
+		System.out.println();
+		System.out.println();
+		System.out.print("PLEASE ENTER YOUR USERNAME: ");
+		String username = sc.nextLine();
+		System.out.print("PLEASE ENTER YOUR PASSWORD: ");
+		String password = sc.nextLine();
+
+
+		String[] files = {"data\\BuyerInfo.txt", "data\\SellerInfo.txt", "data\\ProductInfo.txt", "data\\UserProduct.txt"};
+
+		for(int j=0; j<4; j++){
+			Path filePath = Paths.get(files[j]);
+			String fileContent = null;
+			try {
+				fileContent = Files.readString(filePath);
+			} catch (IOException e) {
+				System.out.println("WARNING: DATABASE READ ERROR");
+			}
+
+			String[] lines = fileContent.split("\\r?\\n");
+			for(int i=0; i< lines.length; i++){
+				System.out.println(lines[i]);
+			}
+
+			System.out.println();
+		}
 		return false;
 	}
 
