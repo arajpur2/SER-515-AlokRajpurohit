@@ -3,6 +3,10 @@
  */
 public class Seller extends Person {
 
+	public Seller(String username, String password, ProductMenu theProductMenu, ProductMenu productMenu) {
+		super(username, password, theProductMenu, productMenu);
+	}
+
 	/**
 	 * According to the need of seller show the appropriate items on 
 	 * the menu.

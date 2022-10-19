@@ -15,7 +15,7 @@ public class Facade {
 	/**
 	 * The type of the user: Buyer: 0, Seller 1
 	 */
-	private int UserType;
+	private int userType;
 
 	/**
 	 * The object that holds the currently selected product.
@@ -55,10 +55,16 @@ public class Facade {
 		String password = sc.nextLine();
 
 
-		String[] files = {"data\\BuyerInfo.txt", "data\\SellerInfo.txt", "data\\ProductInfo.txt", "data\\UserProduct.txt"};
+		String[][] files = {{"data\\BuyerInfo.txt", "Buyer"},{"data\\SellerInfo.txt", "Seller"}};
 
-		for(int j=0; j<4; j++){
-			Path filePath = Paths.get(files[j]);
+		for(int j=0; j<2; j++){
+			Path filePath = Paths.get(files[j][0]);
+			if(files[j][1] == "Buyer"){
+				this.userType = 0;
+			} else {
+				this.userType = 1;
+			}
+
 			String fileContent = null;
 			try {
 				fileContent = Files.readString(filePath);
@@ -68,11 +74,27 @@ public class Facade {
 
 			String[] lines = fileContent.split("\\r?\\n");
 			for(int i=0; i< lines.length; i++){
-				System.out.println(lines[i]);
-			}
+				if(lines[i].split(":")[0].equals(username)){
+					if(lines[i].split(":")[1].equals(password)){
+						thePerson = new Person(username, password, null, null) {
+							@Override
+							public void showMenu() {
 
-			System.out.println();
+							}
+
+							@Override
+							public ProductMenu CreateProductMenu() {
+								return null;
+							}
+						};
+						return true;
+					}
+					else
+						return false;
+				}
+			}
 		}
+
 		return false;
 	}
 

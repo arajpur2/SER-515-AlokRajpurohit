@@ -3,7 +3,7 @@
  */
 public interface ProductMenu {
 
-	Person person = new Person() {
+	/*Person person = new Person() {
 		@Override
 		public void showMenu() {
 
@@ -13,7 +13,7 @@ public interface ProductMenu {
 		public ProductMenu CreateProductMenu() {
 			return null;
 		}
-	};
+	};*/
 
 	/**
 	 * implemented by Meat and Produce class according to thier own needs
