@@ -7,6 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Facade {
@@ -171,6 +172,7 @@ public class Facade {
 			String productCategory = lines[i].split(":")[0];
 			String productName = lines[i].split(":")[1];
 			Product product = new Product(productCategory, productName);
+			products.add(product);
 		}
 
 		this.theProductList = new ClassProductList(products);
@@ -187,6 +189,7 @@ public class Facade {
 		String file = "data\\UserProduct.txt";
 		Path filePath = Paths.get(file);
 		String fileContent = null;
+		ArrayList<Product> products = new ArrayList<>();
 
 		try {
 			fileContent = Files.readString(filePath);
@@ -200,10 +203,17 @@ public class Facade {
 			String username = line.split(":")[0];
 			String productName = line.split(":")[1];
 			if (this.thePerson.getUsername().equals(username)) {
-				ProductIterator productIterator = new ProductIterator(this.theProductList);
-
+				ProductIterator<Product> productIterator = new ProductIterator<>(this.theProductList);
+				while (productIterator.hasNext()){
+					Product product = productIterator.next();
+					if(productName.equals((product.toString()).split(",")[0])){
+						products.add(product);
+					}
+				}
 			}
 		}
+
+		this.thePerson.setProductList(products);
 	}
 
 	/**

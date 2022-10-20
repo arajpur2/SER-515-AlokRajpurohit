@@ -6,17 +6,17 @@ import java.util.NoSuchElementException;
  */
 public class ProductIterator<Product> implements Iterator<Product> {
 
-	private ClassProductList classProductList;
+	private final ClassProductList classProductList;
 
 	private int current;
 
 	public ProductIterator(ClassProductList classProductList) {
 		this.classProductList = classProductList;
-		this.current = 0;
+		this.current = -1;
 		this.size = this.classProductList.getProducts().size();
 	}
 
-	private int size;
+	private final int size;
 
 
 	/**
@@ -33,9 +33,9 @@ public class ProductIterator<Product> implements Iterator<Product> {
 	 */
 	public Product next() {
 		if(!hasNext())
-			throw new NoSuchElementException();
-		Product product = (Product) this.classProductList.getProducts().get(current);
-		current += 2;
+			return null;
+		Product product = (Product) this.classProductList.getProducts().get(current+1);
+		current += 1;
 		return product;
 	}
 
@@ -43,7 +43,7 @@ public class ProductIterator<Product> implements Iterator<Product> {
 	 * Set the current product to the location before the first product
 	 */
 	public void moveToHead() {
-		this.current = 0;
+		this.current = -1;
 	}
 
 	/**

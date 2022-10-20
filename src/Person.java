@@ -20,6 +20,10 @@ public abstract class Person {
 	 */
 	private ProductMenu theProductMenu;
 
+	public void setProductList(ArrayList<Product> productList) {
+		this.productList = productList;
+	}
+
 	/**
 	 * Variable to store the list of products associated with the logged-in user
 	 */

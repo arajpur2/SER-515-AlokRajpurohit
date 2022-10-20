@@ -1,5 +1,5 @@
 /**
- * Templete of every product 
+ * Template of every product
  */
 public class Product {
 	public Product(String category, String name) {
@@ -13,4 +13,15 @@ public class Product {
 
 	private Trading trading;
 
+	public String getCategory() {
+		return category;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String toString(){
+		return this.name + "," + this.category;
+	}
 }

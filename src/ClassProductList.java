@@ -21,7 +21,7 @@ public class ClassProductList {
 	 * To track all the nodes
 	 */
 	public void accept(NodeVisitor visitor) {
-
+		System.out.println("VISITOR NODE ACCEPTED AND MARKED");
 	}
 
 }
