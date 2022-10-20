@@ -13,7 +13,9 @@ public class ClassProductList {
 
 	private ArrayList<Product> products;
 
-	private ProductIterator productIterator;
+	public ArrayList<Product> getProducts() {
+		return products;
+	}
 
 	/**
 	 * To track all the nodes
