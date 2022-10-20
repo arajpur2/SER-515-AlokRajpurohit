@@ -3,11 +3,9 @@
  */
 
 import java.io.*;
-import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.List;
 import java.util.Scanner;
 
 public class Facade {
@@ -76,17 +74,11 @@ public class Facade {
 			for(int i=0; i< lines.length; i++){
 				if(lines[i].split(":")[0].equals(username)){
 					if(lines[i].split(":")[1].equals(password)){
-						thePerson = new Person(username, password, null, null) {
-							@Override
-							public void showMenu() {
-
-							}
-
-							@Override
-							public ProductMenu CreateProductMenu() {
-								return null;
-							}
-						};
+						if(this.userType == 0) {
+							this.createUser(new Buyer(username, password));
+						} else {
+							this.createUser(new Seller(username, password));
+						}
 						return true;
 					}
 					else
@@ -150,11 +142,12 @@ public class Facade {
 	}
 
 	/**
-	 * Create a user object according to the userinfoitem, the object 
+	 * Create a user object according to the user info item, the object
 	 * can be a buyer or a seller
 	 */
-	public void createUser(Userinfoitem userInformation) {
-
+	public void createUser(Person thePerson) {
+		this.thePerson = thePerson;
+		this.attachProductToUser();
 	}
 
 	/**
@@ -170,7 +163,7 @@ public class Facade {
 	 * theProductList. Attach the matched product object to the new 
 	 * create user: Facade.thePerson. ProductList
 	 */
-	public void AttachProductToUser() {
+	public void attachProductToUser() {
 
 	}
 

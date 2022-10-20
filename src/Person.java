@@ -12,13 +12,9 @@ public abstract class Person {
 	 */
 	private ProductMenu theProductMenu;
 
-	private ProductMenu productMenu;
-
-	public Person(String username, String password, ProductMenu theProductMenu, ProductMenu productMenu) {
+	public Person(String username, String password) {
 		this.username = username;
 		this.password = password;
-		this.theProductMenu = theProductMenu;
-		this.productMenu = productMenu;
 	}
 
 	/**
@@ -30,28 +26,28 @@ public abstract class Person {
 	 * Call the implementation to show the "add" buttons
 	 */
 	public void showAddButton() {
-		System.out.println("ADD BUTTON ADDED!");
+		this.theProductMenu.showAddButton();
 	}
 
 	/**
 	 * Call the implementation to show the "view" buttons
 	 */
 	public void showViewButton() {
-		System.out.println("VIEW BUTTON ADDED!");
+		this.theProductMenu.showViewButton();
 	}
 
 	/**
 	 * Call the implementation to show the radio buttons
 	 */
 	public void showRadioButton() {
-		System.out.println("RADIO BUTTONS ADDED!");
+		this.theProductMenu.showRadioButton();
 	}
 
 	/**
 	 * Call the implementation to show the labels
 	 */
 	public void showLabels() {
-		System.out.println("ALL LABELS ADDED!");
+		this.theProductMenu.showLabels();
 	}
 
 	/**

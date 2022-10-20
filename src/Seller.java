@@ -3,8 +3,8 @@
  */
 public class Seller extends Person {
 
-	public Seller(String username, String password, ProductMenu theProductMenu, ProductMenu productMenu) {
-		super(username, password, theProductMenu, productMenu);
+	public Seller(String username, String password) {
+		super(username, password);
 	}
 
 	/**

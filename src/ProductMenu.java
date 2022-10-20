@@ -3,20 +3,8 @@
  */
 public interface ProductMenu {
 
-	/*Person person = new Person() {
-		@Override
-		public void showMenu() {
-
-		}
-
-		@Override
-		public ProductMenu CreateProductMenu() {
-			return null;
-		}
-	};*/
-
 	/**
-	 * implemented by Meat and Produce class according to thier own needs
+	 * implemented by Meat and Produce class according to their own needs
 	 */
 	public abstract void showMenu();
 
