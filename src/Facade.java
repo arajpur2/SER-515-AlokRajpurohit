@@ -194,11 +194,13 @@ public class Facade {
 			System.out.println("WARNING: DATABASE READ ERROR");
 		}
 
+		assert fileContent != null;
 		String[] lines = fileContent.split("\\r?\\n");
-		for(int i=0; i< lines.length; i++) {
-			String username = lines[i].split(":")[0];
-			String productName = lines[i].split(":")[1];
-			if(this.thePerson.getUsername().equals(username)){
+		for (String line : lines) {
+			String username = line.split(":")[0];
+			String productName = line.split(":")[1];
+			if (this.thePerson.getUsername().equals(username)) {
+				ProductIterator productIterator = new ProductIterator(this.theProductList);
 
 			}
 		}
