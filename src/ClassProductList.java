@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * The abstract class of the list to be iterated
  */
@@ -5,7 +7,11 @@ public class ClassProductList {
 
 	private ReminderVisitor reminderVisitor;
 
-	private Product[] product;
+	public ClassProductList(ArrayList<Product> products) {
+		this.products = products;
+	}
+
+	private ArrayList<Product> products;
 
 	private ProductIterator productIterator;
 

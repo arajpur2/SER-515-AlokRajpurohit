@@ -1,16 +1,41 @@
+import java.util.ArrayList;
+
 /**
- * The abstract class on one side of the bridge
+ * The abstract class on one side of the bridge.
+ * Template of the logged-in user
  */
 public abstract class Person {
 
+	/**
+	 * Variables to store the username and password of the Person
+	 * This is the Person who is logged in
+	*/
 	private String username;
+
 	private String password;
 
 	/**
-	 * Variable of ProductMenu. Use this variable to point to a concrete 
+	 * Variable of ProductMenu. Use this variable to point to a concrete
 	 * productMenu object. Later, it will operate the object
 	 */
 	private ProductMenu theProductMenu;
+
+	/**
+	 * Variable to store the list of products associated with the logged-in user
+	 */
+	private ArrayList<Product> productList;
+
+	public ProductMenu getTheProductMenu() {
+		return theProductMenu;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
 
 	public Person(String username, String password) {
 		this.username = username;

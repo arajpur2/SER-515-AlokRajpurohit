@@ -6,6 +6,7 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Facade {
@@ -154,17 +155,53 @@ public class Facade {
 	 * Create the product list of the entire system
 	 */
 	public void createProductList() {
+		String file = "data\\ProductInfo.txt";
+		Path filePath = Paths.get(file);
+		String fileContent = null;
+		ArrayList<Product> products = new ArrayList<>();
 
+		try {
+			fileContent = Files.readString(filePath);
+		} catch (IOException e) {
+			System.out.println("WARNING: DATABASE READ ERROR");
+		}
+
+		String[] lines = fileContent.split("\\r?\\n");
+		for(int i=0; i< lines.length; i++) {
+			String productCategory = lines[i].split(":")[0];
+			String productName = lines[i].split(":")[1];
+			Product product = new Product(productCategory, productName);
+		}
+
+		this.theProductList = new ClassProductList(products);
 	}
 
 	/**
 	 * Call this function after creating the user. Create productList by 
 	 * reading the UserProduct.txt file. Match the product name with 
 	 * theProductList. Attach the matched product object to the new 
-	 * create user: Facade.thePerson. ProductList
+	 * create user: Facade.thePerson.ProductList
 	 */
 	public void attachProductToUser() {
+		this.createProductList();
+		String file = "data\\UserProduct.txt";
+		Path filePath = Paths.get(file);
+		String fileContent = null;
 
+		try {
+			fileContent = Files.readString(filePath);
+		} catch (IOException e) {
+			System.out.println("WARNING: DATABASE READ ERROR");
+		}
+
+		String[] lines = fileContent.split("\\r?\\n");
+		for(int i=0; i< lines.length; i++) {
+			String username = lines[i].split(":")[0];
+			String productName = lines[i].split(":")[1];
+			if(this.thePerson.getUsername().equals(username)){
+
+			}
+		}
 	}
 
 	/**
