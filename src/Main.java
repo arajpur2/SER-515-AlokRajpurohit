@@ -1,6 +1,7 @@
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class Main {
 
@@ -20,6 +21,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         Facade facade = new Facade();
         Scanner sc = new Scanner(System.in);
+
         String continueLogin;
 
         do {
@@ -34,5 +36,14 @@ public class Main {
                 continueLogin = sc.nextLine();
             }
         } while (continueLogin.equalsIgnoreCase("y"));
+
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        clearConsole();
+        facade.productOperation();
+        facade.selectProduct();
     }
 }

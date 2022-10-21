@@ -46,6 +46,10 @@ public abstract class Person {
 		this.password = password;
 	}
 
+	public ArrayList<Product> getProductList() {
+		return productList;
+	}
+
 	/**
 	 * Overridden by the class: buyer and seller to show the menu
 	 */
@@ -79,9 +83,13 @@ public abstract class Person {
 		this.theProductMenu.showLabels();
 	}
 
+	public void setTheProductMenu(ProductMenu theProductMenu) {
+		this.theProductMenu = theProductMenu;
+	}
+
 	/**
 	 * Overridden by the class: buyer and seller to create the menu. The abstract factory method
 	 */
-	public abstract ProductMenu CreateProductMenu();
+	public abstract ProductMenu createProductMenu(int menuType, ClassProductList theProductList);
 
 }

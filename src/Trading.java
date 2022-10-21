@@ -10,7 +10,7 @@ public class Trading {
 	/**
 	 * To track all the nodes
 	 */
-	public void accept(NodeVisitor visitpr) {
+	public void accept(NodeVisitor visitor) {
 
 	}
 

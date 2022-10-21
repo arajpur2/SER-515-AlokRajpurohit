@@ -7,7 +7,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Facade {
@@ -219,8 +218,8 @@ public class Facade {
 	/**
 	 * Show the Product list in a Dialog and return the selected product.
 	 */
-	public void SelectProduct() {
-
+	public void selectProduct() {
+		System.out.println("OK. DONE NOW!");
 	}
 
 	/**
@@ -230,7 +229,13 @@ public class Facade {
 	 * menu differently according to the usertype
 	 */
 	public void productOperation() {
-
+		System.out.println("*************WELCOME TO ALOK'S PRODUCT TRADING AND BIDDING SYSTEM!*************");
+		System.out.println();
+		System.out.println();
+		System.out.println("CUSTOMER USERNAME: " + this.thePerson.getUsername());
+		System.out.println("CUSTOMER TYPE: " + ((this.userType == 0) ? "Buyer" : "Seller"));
+		ProductMenu produceMenu = this.thePerson.createProductMenu(0, this.theProductList);
+		ProductMenu meatMenu = this.thePerson.createProductMenu(1, this.theProductList);
 	}
 
 }
