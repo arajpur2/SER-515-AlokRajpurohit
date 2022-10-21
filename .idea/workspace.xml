@@ -1,26 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f50082d8-9149-4b2e-88bf-5baf8bb114b8" name="Changes" comment="final commit">
+    <list default="true" id="f50082d8-9149-4b2e-88bf-5baf8bb114b8" name="Changes" comment="final commit version 2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Buyer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Buyer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClassProductList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClassProductList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Facade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Facade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MeatProductMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MeatProductMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NodeVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NodeVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Offering.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Offering.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OfferingIterator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OfferingIterator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OfferingList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OfferingList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProduceProductMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProduceProductMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductIterator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductIterator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Reminder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Reminder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ReminderVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ReminderVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Seller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Seller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Trading.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Trading.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,7 +152,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666333221872</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="final commit version 2">
+      <created>1666334557033</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1666334557033</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -198,7 +187,8 @@
     <MESSAGE value="Facade system product operation completed" />
     <MESSAGE value="product add functionality added" />
     <MESSAGE value="final commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="final commit" />
+    <MESSAGE value="final commit version 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="final commit version 2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
