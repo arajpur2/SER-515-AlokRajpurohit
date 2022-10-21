@@ -1,9 +1,12 @@
 import java.util.ArrayList;
 
 /**
+ * Bridge Design pattern
  * The abstract class on one side of the bridge.
  * Template of the logged-in user
  */
+
+@SuppressWarnings("all")
 public abstract class Person {
 
 	/**
@@ -18,7 +21,7 @@ public abstract class Person {
 	 * Variable of ProductMenu. Use this variable to point to a concrete
 	 * productMenu object. Later, it will operate the object
 	 */
-	private ProductMenu theProductMenu;
+	private ProductMenu theProductMenu;  // Factory Design Pattern
 
 	public void setProductList(ArrayList<Product> productList) {
 		this.productList = productList;

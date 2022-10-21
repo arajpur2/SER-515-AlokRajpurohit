@@ -1,6 +1,9 @@
 /**
  * The abstract class on the other side of the bridge
+ * Bridge Design pattern
  */
+
+@SuppressWarnings("all")
 public interface ProductMenu {
 
 	/**

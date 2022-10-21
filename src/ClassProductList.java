@@ -1,8 +1,11 @@
 import java.util.ArrayList;
 
 /**
+ * Iterator Design Pattern
  * The abstract class of the list to be iterated
  */
+
+@SuppressWarnings("all")
 public class ClassProductList {
 
 	private ReminderVisitor reminderVisitor;

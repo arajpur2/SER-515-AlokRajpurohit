@@ -1,6 +1,9 @@
 /**
+ * Bridge Design pattern
  * One concrete implementation of ProductMenu for the meat product
  */
+
+@SuppressWarnings("all")
 public class MeatProductMenu implements ProductMenu {
 
 	private ClassProductList productList;

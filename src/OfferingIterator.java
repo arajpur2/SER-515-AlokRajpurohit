@@ -1,6 +1,9 @@
 /**
+ * Iterator Design Pattern
  * A concrete subclass of ListIterator that iterate the OfferingList
  */
+
+@SuppressWarnings("all")
 public class OfferingIterator {
 
 	private OfferingList offeringList;

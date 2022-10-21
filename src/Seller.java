@@ -1,8 +1,11 @@
 import java.util.ArrayList;
 
 /**
+ * Bridge Design pattern
  * The concrete subclass of Person
  */
+
+@SuppressWarnings("all")
 public class Seller extends Person {
 
 	public Seller(String username, String password) {
@@ -33,9 +36,9 @@ public class Seller extends Person {
 	public ProductMenu createProductMenu(int menuType, ClassProductList theProductList) {
 		ProductMenu menu;
 		if(menuType == 0){
-			menu = new MeatProductMenu(theProductList);
+			menu = new MeatProductMenu(theProductList); //Factory Design Pattern
 		} else {
-			menu = new ProduceProductMenu(theProductList);
+			menu = new ProduceProductMenu(theProductList); //Factory Design Pattern
 		}
 
 		return menu;

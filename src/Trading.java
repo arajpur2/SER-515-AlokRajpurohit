@@ -1,6 +1,9 @@
 /**
+ * Visitor Design pattern
  * for every trading between a product and an offering
  */
+
+@SuppressWarnings("all")
 public class Trading {
 
 	private Product product;

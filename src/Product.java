@@ -1,6 +1,8 @@
 /**
  * Template of every product
  */
+
+@SuppressWarnings("all")
 public class Product {
 	public Product(String category, String name) {
 		this.category = category;

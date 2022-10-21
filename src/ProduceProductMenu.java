@@ -1,8 +1,9 @@
-import java.util.ArrayList;
-
 /**
+ * Bridge Design pattern
  * One concrete implementation of ProductMenu for the produce product
  */
+
+@SuppressWarnings("all")
 public class ProduceProductMenu implements ProductMenu {
 
 	private ClassProductList productList;

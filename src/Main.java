@@ -1,8 +1,8 @@
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
+@SuppressWarnings("all")
 public class Main {
 
     public final static void clearConsole()

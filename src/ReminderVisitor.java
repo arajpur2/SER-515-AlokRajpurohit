@@ -1,3 +1,8 @@
+
+@SuppressWarnings("all")
+/**
+ * Visitor Design pattern
+ */
 public class ReminderVisitor extends NodeVisitor {
 
 	/**

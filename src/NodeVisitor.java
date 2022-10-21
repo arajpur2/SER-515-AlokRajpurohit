@@ -1,8 +1,11 @@
 /**
+ * Visitor Design pattern
  * The abstract class of the visitor, it can visit class: Façade, Trading, Product. 
  * The real work that need to be done will be implemented in the concrete 
  * visitor classes.
  */
+
+@SuppressWarnings("all")
 public abstract class NodeVisitor {
 
 	/**

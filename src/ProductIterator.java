@@ -1,9 +1,11 @@
 import java.util.Iterator;
-import java.util.NoSuchElementException;
 
 /**
+ * Iterator Design Pattern
  * A concrete subclass of ListIterator that iterates the ProductList
  */
+
+@SuppressWarnings("all")
 public class ProductIterator<Product> implements Iterator<Product> {
 
 	private final ClassProductList classProductList;

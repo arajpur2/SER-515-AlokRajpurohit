@@ -8,6 +8,10 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
 
+@SuppressWarnings("all")
+/**
+ * Facde Design Pattern
+ */
 public class Facade {
 
 	/**
@@ -24,10 +28,6 @@ public class Facade {
 	 * The list of products of the entire system.
 	 */
 	private ClassProductList theProductList;
-
-	public Person getThePerson() {
-		return thePerson;
-	}
 
 	/**
 	 * The list of products of the entire system.
