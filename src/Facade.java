@@ -6,11 +6,7 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 import java.util.*;
-
-import static java.nio.file.StandardOpenOption.APPEND;
-import static java.nio.file.StandardOpenOption.CREATE;
 
 public class Facade {
 
@@ -141,7 +137,15 @@ public class Facade {
 	 * trading window
 	 */
 	public void remind() {
-		System.out.println("reminder set successfully");
+		Scanner sc2 = new Scanner(System.in);
+		System.out.println("ENTER THE REMINDER NAME:");
+		String reminderName = sc2.nextLine();
+		System.out.println("ENTER THE REMINDER DESCRIPTION:");
+		String reminderDesc = sc2.nextLine();
+		System.out.println("ENTER THE REMINDER DEADLINE TIME:");
+		String reminderTime = sc2.nextLine();
+		Reminder reminder = new Reminder(reminderName, reminderDesc, reminderTime);
+		reminder.showReminder();
 	}
 
 	/**
@@ -239,7 +243,7 @@ public class Facade {
 		System.out.println("3. VIEW THE FULL MENU");
 		System.out.println("4. VIEW YOUR PRODUCTS");
 		System.out.println("5. ADD A PRODUCT");
-		System.out.println("6. REMOVE A PRODUCT");
+		System.out.println("6. SET REMINDER");
 		System.out.println("PLEASE ENTER YOUR CHOICE!");
 		int choice = 0;
 
@@ -269,20 +273,45 @@ public class Facade {
 				String productName = sc1.nextLine();
 
 				File f1 = new File("data\\UserProduct.txt");
-				try {
-					FileWriter fileWriter = new FileWriter(f1,true);
-					BufferedWriter bw = new BufferedWriter(fileWriter);
-					bw.write("\n"+this.thePerson.getUsername()+":"+productName);
-					bw.close();
-				} catch (Exception e){
-					System.out.println("DATABASE WRITE ERROR");
+				ArrayList<Product> products = this.theProductList.getProducts();
+				ProductIterator<Product> productIterator = new ProductIterator<>(this.theProductList);
+				boolean repetitionFlag = false;
+				boolean notFoundFlag = true;
+
+				while(productIterator.hasNext()){
+					Product product = productIterator.next();
+					if (product.getName().equalsIgnoreCase(productName)){
+						notFoundFlag = false;
+					}
 				}
 
-				System.out.println(productName);
+				ClassProductList theProductList = new ClassProductList(this.thePerson.getProductList());
+				productIterator = new ProductIterator<>(theProductList);
+				while(productIterator.hasNext()){
+					Product product = productIterator.next();
+					if (product.getName().equalsIgnoreCase(productName)){
+						repetitionFlag = true;
+					}
+				}
+
+
+				if (notFoundFlag || repetitionFlag){
+					System.out.println("\nTHIS PRODUCT CAN'T BE ADDED EITHER BECAUSE IT IS NOT PRESENT IN THE MAIN LIST OR YOU ALREADY HAVE IT IN YOUR LIST OF PRODUCTS.");
+				} else {
+					try {
+						FileWriter fileWriter = new FileWriter(f1,true);
+						BufferedWriter bw = new BufferedWriter(fileWriter);
+						bw.write("\n"+this.thePerson.getUsername()+":"+productName);
+						bw.close();
+					} catch (Exception e){
+						System.out.println("DATABASE WRITE ERROR");
+					}
+				}
+
+				System.out.println("THE PRODUCT HAS BEEN ADDED SUCCESSFULLY!");
 				break;
 			case 6:
-				this.showMenu();
-				System.out.println("\nPLEASE ENTER THE NAME OF THE PRODUCT YOU WANT TO ADD:");
+				this.remind();
 				break;
 			default:
 				System.out.println("WRONG CHOICE");

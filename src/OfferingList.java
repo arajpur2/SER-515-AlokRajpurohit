@@ -9,4 +9,7 @@ public class OfferingList {
 
 	private OfferingIterator offeringIterator;
 
+	public Offering[] getOffering() {
+		return offering;
+	}
 }
