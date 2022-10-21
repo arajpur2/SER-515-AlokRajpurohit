@@ -16,7 +16,7 @@ public class Buyer extends Person {
 	public void showMenu() {
 		ArrayList<Product> menuItems = this.getProductList();
 		ClassProductList productList = new ClassProductList(menuItems);
-		System.out.println("\nTHIS ARE THE CURRENT ITEMS WITH THE BUYER:");
+		System.out.println("\nTHESE ARE THE CURRENT ITEMS WITH THE BUYER:");
 		System.out.println("\nNAME			CATEGORY");
 		System.out.println("____		   ________");
 		System.out.println();
@@ -33,9 +33,9 @@ public class Buyer extends Person {
 	public ProductMenu createProductMenu(int menuType, ClassProductList theProductList) {
 		ProductMenu menu;
 		if(menuType == 0){
-			menu = new MeatProductMenu(theProductList);
-		} else {
 			menu = new ProduceProductMenu(theProductList);
+		} else {
+			menu = new MeatProductMenu(theProductList);
 		}
 
 		return menu;

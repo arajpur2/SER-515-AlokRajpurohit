@@ -11,7 +11,7 @@ public class Trading {
 	 * To track all the nodes
 	 */
 	public void accept(NodeVisitor visitor) {
-
+		System.out.println("NODE MARKED AS  VISITED");
 	}
 
 }

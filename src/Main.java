@@ -38,12 +38,11 @@ public class Main {
         } while (continueLogin.equalsIgnoreCase("y"));
 
         try {
-            TimeUnit.SECONDS.sleep(1);
+            TimeUnit.MILLISECONDS.sleep(750);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
         clearConsole();
         facade.productOperation();
-        facade.selectProduct();
     }
 }

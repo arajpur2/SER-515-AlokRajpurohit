@@ -16,7 +16,7 @@ public class Seller extends Person {
 	public void showMenu() {
 		ArrayList<Product> menuItems = this.getProductList();
 		ClassProductList productList = new ClassProductList(menuItems);
-		System.out.println("\nTHIS ARE THE CURRENT ITEMS WITH THE SELLER:");
+		System.out.println("\nTHESE ARE THE CURRENT ITEMS WITH THE SELLER:");
 		System.out.println("\nNAME			CATEGORY");
 		System.out.println("____		   ________");
 		System.out.println();

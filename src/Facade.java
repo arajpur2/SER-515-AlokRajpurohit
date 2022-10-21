@@ -6,8 +6,11 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.nio.file.StandardOpenOption;
+import java.util.*;
+
+import static java.nio.file.StandardOpenOption.APPEND;
+import static java.nio.file.StandardOpenOption.CREATE;
 
 public class Facade {
 
@@ -72,17 +75,16 @@ public class Facade {
 			}
 
 			String[] lines = fileContent.split("\\r?\\n");
-			for(int i=0; i< lines.length; i++){
-				if(lines[i].split(":")[0].equals(username)){
-					if(lines[i].split(":")[1].equals(password)){
-						if(this.userType == 0) {
+			for (String line : lines) {
+				if (line.split(":")[0].equals(username)) {
+					if (line.split(":")[1].equals(password)) {
+						if (this.userType == 0) {
 							this.createUser(new Buyer(username, password));
 						} else {
 							this.createUser(new Seller(username, password));
 						}
 						return true;
-					}
-					else
+					} else
 						return false;
 				}
 			}
@@ -215,11 +217,76 @@ public class Facade {
 		this.thePerson.setProductList(products);
 	}
 
+	public void showMenu(){
+		System.out.println("\nTHE FULL MENU:");
+		System.out.println("\nNAME			CATEGORY");
+		System.out.println("____		   ________");
+		System.out.println();
+		ProductIterator<Product> iterator = new ProductIterator<>(this.theProductList);
+		while (iterator.hasNext()) {
+			Product product = iterator.next();
+			System.out.println(product.getName() + "			" + product.getCategory());
+		}
+	}
+
 	/**
 	 * Show the Product list in a Dialog and return the selected product.
 	 */
-	public void selectProduct() {
-		System.out.println("OK. DONE NOW!");
+	public void selectProduct(ProductMenu produceMenu, ProductMenu meatMenu) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("\n1. VIEW PRODUCE MENU");
+		System.out.println("2. VIEW MEAT MENU");
+		System.out.println("3. VIEW THE FULL MENU");
+		System.out.println("4. VIEW YOUR PRODUCTS");
+		System.out.println("5. ADD A PRODUCT");
+		System.out.println("6. REMOVE A PRODUCT");
+		System.out.println("PLEASE ENTER YOUR CHOICE!");
+		int choice = 0;
+
+		try {
+			choice = sc.nextInt();
+		} catch (Exception e){
+			System.out.println("PLEASE ENTER CHOICE NUMBERS ONLY");
+		}
+
+		switch (choice){
+			case 1:
+				produceMenu.showMenu();
+				break;
+			case 2:
+				meatMenu.showMenu();
+				break;
+			case 3:
+				this.showMenu();
+				break;
+			case 4:
+				this.thePerson.showMenu();
+				break;
+			case 5:
+				this.showMenu();
+				System.out.println("\nPLEASE ENTER THE NAME OF THE PRODUCT YOU WANT TO ADD:");
+				Scanner sc1 = new Scanner(System.in);
+				String productName = sc1.nextLine();
+
+				File f1 = new File("data\\UserProduct.txt");
+				try {
+					FileWriter fileWriter = new FileWriter(f1,true);
+					BufferedWriter bw = new BufferedWriter(fileWriter);
+					bw.write("\n"+this.thePerson.getUsername()+":"+productName);
+					bw.close();
+				} catch (Exception e){
+					System.out.println("DATABASE WRITE ERROR");
+				}
+
+				System.out.println(productName);
+				break;
+			case 6:
+				this.showMenu();
+				System.out.println("\nPLEASE ENTER THE NAME OF THE PRODUCT YOU WANT TO ADD:");
+				break;
+			default:
+				System.out.println("WRONG CHOICE");
+		}
 	}
 
 	/**
@@ -236,6 +303,7 @@ public class Facade {
 		System.out.println("CUSTOMER TYPE: " + ((this.userType == 0) ? "Buyer" : "Seller"));
 		ProductMenu produceMenu = this.thePerson.createProductMenu(0, this.theProductList);
 		ProductMenu meatMenu = this.thePerson.createProductMenu(1, this.theProductList);
+		this.selectProduct(produceMenu, meatMenu);
 	}
 
 }

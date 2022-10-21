@@ -25,7 +25,9 @@ public class MeatProductMenu implements ProductMenu {
 		ProductIterator<Product> iterator = new ProductIterator<>(this.productList);
 		while (iterator.hasNext()) {
 			Product product = iterator.next();
-			System.out.println(product.getName() + "			" + product.getCategory());
+			if(product.getCategory().equals("Meat")){
+				System.out.println(product.getName() + "			" + product.getCategory());
+			}
 		}
 	}
 
